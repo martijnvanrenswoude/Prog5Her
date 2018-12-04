@@ -1,0 +1,6 @@
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\bin\Debug\QuizDB.dacpac
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\bin\Debug\QuizDB.dll
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\bin\Debug\QuizDB.pdb
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\obj\Debug\QuizDB.dll
+C:\Users\Martijn\source\repos\PROG5Her\QuizDB\obj\Debug\QuizDB.pdb

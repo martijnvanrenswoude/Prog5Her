@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Prog5HerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="IsCorrect" Type="bit" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question_Questionnaire">
+          <Key>
+            <PropertyRef Name="Questionnaire_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="Questionnaire_ID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Category" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__Answers__Questio__3D5E1FD2">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question___Quest__3E52440B">
+          <End Role="Questionnaire" Type="Self.Questionnaire" Multiplicity="1" />
+          <End Role="Question_Questionnaire" Type="Self.Question_Questionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questionnaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question_Questionnaire">
+              <PropertyRef Name="Questionnaire_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question___Quest__3F466844">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Question_Questionnaire" Type="Self.Question_Questionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question_Questionnaire">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Prog5HerDBModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question_Questionnaire" EntityType="Self.Question_Questionnaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questionnaire" EntityType="Self.Questionnaire" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Answers__Questio__3D5E1FD2" Association="Self.FK__Answers__Questio__3D5E1FD2">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question___Quest__3E52440B" Association="Self.FK__Question___Quest__3E52440B">
+            <End Role="Questionnaire" EntitySet="Questionnaire" />
+            <End Role="Question_Questionnaire" EntitySet="Question_Questionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question___Quest__3F466844" Association="Self.FK__Question___Quest__3F466844">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Question_Questionnaire" EntitySet="Question_Questionnaire" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Prog5HerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="IsCorrect" Type="Boolean" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__Answers__Questio__3D5E1FD2" FromRole="Answers" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__Questio__3D5E1FD2" FromRole="Question" ToRole="Answers" />
+          <NavigationProperty Name="Questionnaires" Relationship="Self.Question_Questionnaire" FromRole="Question" ToRole="Questionnaire" />
+        </EntityType>
+        <EntityType Name="Questionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Questions" Relationship="Self.Question_Questionnaire" FromRole="Questionnaire" ToRole="Question" />
+        </EntityType>
+        <Association Name="FK__Answers__Questio__3D5E1FD2">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Question_Questionnaire">
+          <End Role="Questionnaire" Type="Self.Questionnaire" Multiplicity="*" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Prog5HerDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="Answers" EntityType="Self.Answer" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="Questionnaires" EntityType="Self.Questionnaire" />
+          <AssociationSet Name="FK__Answers__Questio__3D5E1FD2" Association="Self.FK__Answers__Questio__3D5E1FD2">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="Question_Questionnaire" Association="Self.Question_Questionnaire">
+            <End Role="Questionnaire" EntitySet="Questionnaires" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Prog5HerDBModelStoreContainer" CdmEntityContainer="Prog5HerDBEntities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="Prog5HerDBModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="Prog5HerDBModel.Answer">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="Prog5HerDBModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questionnaires">
+            <EntityTypeMapping TypeName="Prog5HerDBModel.Questionnaire">
+              <MappingFragment StoreEntitySet="Questionnaire">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Question_Questionnaire" TypeName="Prog5HerDBModel.Question_Questionnaire" StoreEntitySet="Question_Questionnaire">
+            <EndProperty Name="Questionnaire">
+              <ScalarProperty Name="Id" ColumnName="Questionnaire_ID" />
+            </EndProperty>
+            <EndProperty Name="Question">
+              <ScalarProperty Name="Id" ColumnName="QuestionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
