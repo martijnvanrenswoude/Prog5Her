@@ -13,10 +13,10 @@ namespace PROG5Her
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Prog5HerDBEntities : DbContext
+    public partial class QuizDBEntities : DbContext
     {
-        public Prog5HerDBEntities()
-            : base("name=Prog5HerDBEntities")
+        public QuizDBEntities()
+            : base("name=QuizDBEntities")
         {
         }
     
@@ -29,5 +29,6 @@ namespace PROG5Her
         public virtual DbSet<Answer> Answers { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Questionnaire> Questionnaires { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

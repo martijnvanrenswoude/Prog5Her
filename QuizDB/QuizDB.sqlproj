@@ -70,5 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="QuizDB.publish.xml" />
+    <None Include="QuizDataBase.publish.publish.xml" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Prog5HerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QuizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -42,7 +42,17 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Category" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK__Answers__Questio__3D5E1FD2">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Answers__Questio__46E78A0C">
           <End Role="Question" Type="Self.Question" Multiplicity="1" />
           <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -54,7 +64,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question___Quest__3E52440B">
+        <Association Name="FK__Question___Quest__47DBAE45">
           <End Role="Questionnaire" Type="Self.Questionnaire" Multiplicity="1" />
           <End Role="Question_Questionnaire" Type="Self.Question_Questionnaire" Multiplicity="*" />
           <ReferentialConstraint>
@@ -66,7 +76,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question___Quest__3F466844">
+        <Association Name="FK__Question___Quest__48CFD27E">
           <End Role="Question" Type="Self.Question" Multiplicity="1" />
           <End Role="Question_Questionnaire" Type="Self.Question_Questionnaire" Multiplicity="*" />
           <ReferentialConstraint>
@@ -78,21 +88,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Prog5HerDBModelStoreContainer">
+        <EntityContainer Name="QuizDBModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question_Questionnaire" EntityType="Self.Question_Questionnaire" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questionnaire" EntityType="Self.Questionnaire" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Answers__Questio__3D5E1FD2" Association="Self.FK__Answers__Questio__3D5E1FD2">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Answers__Questio__46E78A0C" Association="Self.FK__Answers__Questio__46E78A0C">
             <End Role="Question" EntitySet="Question" />
             <End Role="Answers" EntitySet="Answers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question___Quest__3E52440B" Association="Self.FK__Question___Quest__3E52440B">
+          <AssociationSet Name="FK__Question___Quest__47DBAE45" Association="Self.FK__Question___Quest__47DBAE45">
             <End Role="Questionnaire" EntitySet="Questionnaire" />
             <End Role="Question_Questionnaire" EntitySet="Question_Questionnaire" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question___Quest__3F466844" Association="Self.FK__Question___Quest__3F466844">
+          <AssociationSet Name="FK__Question___Quest__48CFD27E" Association="Self.FK__Question___Quest__48CFD27E">
             <End Role="Question" EntitySet="Question" />
             <End Role="Question_Questionnaire" EntitySet="Question_Questionnaire" />
           </AssociationSet>
@@ -101,7 +112,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Prog5HerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="QuizDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -115,7 +126,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QuestionID" Type="Int32" Nullable="false" />
           <Property Name="IsCorrect" Type="Boolean" />
-          <NavigationProperty Name="Question" Relationship="Self.FK__Answers__Questio__3D5E1FD2" FromRole="Answers" ToRole="Question" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__Answers__Questio__46E78A0C" FromRole="Answers" ToRole="Question" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -123,7 +134,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__Questio__3D5E1FD2" FromRole="Question" ToRole="Answers" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__Questio__46E78A0C" FromRole="Question" ToRole="Answers" />
           <NavigationProperty Name="Questionnaires" Relationship="Self.Question_Questionnaire" FromRole="Question" ToRole="Questionnaire" />
         </EntityType>
         <EntityType Name="Questionnaire">
@@ -135,7 +146,17 @@
           <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Questions" Relationship="Self.Question_Questionnaire" FromRole="Questionnaire" ToRole="Question" />
         </EntityType>
-        <Association Name="FK__Answers__Questio__3D5E1FD2">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Answers__Questio__46E78A0C">
           <End Role="Question" Type="Self.Question" Multiplicity="1" />
           <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -151,12 +172,13 @@
           <End Role="Questionnaire" Type="Self.Questionnaire" Multiplicity="*" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Prog5HerDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuizDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="Answers" EntityType="Self.Answer" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Questionnaires" EntityType="Self.Questionnaire" />
-          <AssociationSet Name="FK__Answers__Questio__3D5E1FD2" Association="Self.FK__Answers__Questio__3D5E1FD2">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__Answers__Questio__46E78A0C" Association="Self.FK__Answers__Questio__46E78A0C">
             <End Role="Question" EntitySet="Questions" />
             <End Role="Answers" EntitySet="Answers" />
           </AssociationSet>
@@ -170,16 +192,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Prog5HerDBModelStoreContainer" CdmEntityContainer="Prog5HerDBEntities">
+        <EntityContainerMapping StorageEntityContainer="QuizDBModelStoreContainer" CdmEntityContainer="QuizDBEntities">
           <EntitySetMapping Name="C__RefactorLog">
-            <EntityTypeMapping TypeName="Prog5HerDBModel.C__RefactorLog">
+            <EntityTypeMapping TypeName="QuizDBModel.C__RefactorLog">
               <MappingFragment StoreEntitySet="__RefactorLog">
                 <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Answers">
-            <EntityTypeMapping TypeName="Prog5HerDBModel.Answer">
+            <EntityTypeMapping TypeName="QuizDBModel.Answer">
               <MappingFragment StoreEntitySet="Answers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
@@ -188,7 +210,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questions">
-            <EntityTypeMapping TypeName="Prog5HerDBModel.Question">
+            <EntityTypeMapping TypeName="QuizDBModel.Question">
               <MappingFragment StoreEntitySet="Question">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Question1" ColumnName="Question" />
@@ -196,7 +218,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questionnaires">
-            <EntityTypeMapping TypeName="Prog5HerDBModel.Questionnaire">
+            <EntityTypeMapping TypeName="QuizDBModel.Questionnaire">
               <MappingFragment StoreEntitySet="Questionnaire">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -204,7 +226,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Question_Questionnaire" TypeName="Prog5HerDBModel.Question_Questionnaire" StoreEntitySet="Question_Questionnaire">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QuizDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Question_Questionnaire" TypeName="QuizDBModel.Question_Questionnaire" StoreEntitySet="Question_Questionnaire">
             <EndProperty Name="Questionnaire">
               <ScalarProperty Name="Id" ColumnName="Questionnaire_ID" />
             </EndProperty>

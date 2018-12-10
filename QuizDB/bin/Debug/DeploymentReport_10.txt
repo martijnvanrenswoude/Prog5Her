@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Answers] (Table)
+       [dbo].[Category] (Table)
+       [dbo].[Question] (Table)
+       [dbo].[Question_Questionnaire] (Table)
+       [dbo].[Questionnaire] (Table)
+       Foreign Key: unnamed constraint on [dbo].[Answers] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Question] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Question_Questionnaire] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Question_Questionnaire] (Foreign Key)
+
+** Supporting actions
