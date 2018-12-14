@@ -107,6 +107,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuizDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\GameVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
