@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("quizdbentities.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("quizdbentities.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("quizdb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("quizdb.tt")]
 
 

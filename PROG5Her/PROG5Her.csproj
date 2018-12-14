@@ -78,32 +78,36 @@
       <DependentUpon>AddQuestion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Answer.cs">
-      <DependentUpon>QuizDBEntities.tt</DependentUpon>
+      <DependentUpon>QuizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="C__RefactorLog.cs">
-      <DependentUpon>QuizDBEntities.tt</DependentUpon>
+      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Question.cs">
-      <DependentUpon>QuizDBEntities.tt</DependentUpon>
+      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Questionnaire.cs">
-      <DependentUpon>QuizDBEntities.tt</DependentUpon>
+      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuizDBEntities.Context.cs">
+    <Compile Include="QuizDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDBEntities.Context.tt</DependentUpon>
+      <DependentUpon>QuizDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuizDBEntities.cs">
+    <Compile Include="QuizDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDBEntities.tt</DependentUpon>
+      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuizDBEntities.Designer.cs">
+    <Compile Include="QuizDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDBEntities.edmx</DependentUpon>
+      <DependentUpon>QuizDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\GameVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -111,7 +115,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\AddQuestionAndAnswerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -119,7 +127,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\AddQuestionAndAnswerView.xaml.cs">
+      <DependentUpon>AddQuestionAndAnswerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -148,27 +159,27 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="QuizDBEntities.edmx">
+    <EntityDeploy Include="QuizDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizDBEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuizDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="QuizDBEntities.edmx.diagram">
-      <DependentUpon>QuizDBEntities.edmx</DependentUpon>
+    <None Include="QuizDB.edmx.diagram">
+      <DependentUpon>QuizDB.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QuizDBEntities.Context.tt">
+    <Content Include="QuizDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizDBEntities.edmx</DependentUpon>
-      <LastGenOutput>QuizDBEntities.Context.cs</LastGenOutput>
+      <DependentUpon>QuizDB.edmx</DependentUpon>
+      <LastGenOutput>QuizDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="QuizDBEntities.tt">
+    <Content Include="QuizDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizDBEntities.edmx</DependentUpon>
-      <LastGenOutput>QuizDBEntities.cs</LastGenOutput>
+      <DependentUpon>QuizDB.edmx</DependentUpon>
+      <LastGenOutput>QuizDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -63,11 +63,13 @@
     <Build Include="Answers.sql" />
     <Build Include="Questionnaire.sql" />
     <Build Include="Question_Questionnaire.sql" />
+    <Build Include="Categories.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="QuizDB.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="QuizDB.publish.xml" />
+    <None Include="QuizDataBase.publish.publish.xml" />
   </ItemGroup>
 </Project>

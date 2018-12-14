@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Answers].[Answer] is being dropped, data loss could occur.
+
+** User actions
+     Alter
+       [dbo].[Answers] (Table)
+     Create
+       [dbo].[Category] (Table)
+       Foreign Key: unnamed constraint on [dbo].[Question] (Foreign Key)
+
+** Supporting actions
+
+The column [dbo].[Answers].[Answer] is being dropped, data loss could occur.
+
