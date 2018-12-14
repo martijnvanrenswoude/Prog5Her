@@ -80,6 +80,9 @@
     <Compile Include="Answer.cs">
       <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>QuizDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="C__RefactorLog.cs">
       <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
@@ -103,9 +106,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuizDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>QuizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />

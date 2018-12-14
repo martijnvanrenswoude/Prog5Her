@@ -10,3 +10,7 @@ C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\bin\Debug\QuizDB.pdb
 C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache
 C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\QuizDB.dll
 C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\QuizDB.pdb
+C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\Model.xml
+C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\refactor.xml
+C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\postdeploy.sql
+C:\Users\Martijn\Documents\GitHub\Prog5Her\QuizDB\obj\Debug\predeploy.sql

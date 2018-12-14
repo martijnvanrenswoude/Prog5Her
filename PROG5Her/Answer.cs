@@ -17,6 +17,7 @@ namespace PROG5Her
         public int Id { get; set; }
         public int QuestionID { get; set; }
         public Nullable<bool> IsCorrect { get; set; }
+        public string Answer1 { get; set; }
     
         public virtual Question Question { get; set; }
     }

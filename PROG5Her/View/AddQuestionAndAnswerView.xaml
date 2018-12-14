@@ -15,12 +15,26 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
             <TextBlock Text="Nieuwe vraag: " Margin="5"/>
             <TextBox Text="{Binding QuestionName}" Width="243" Margin="5"/>
-            <Button Content="Add" Width="70" Margin="5" />
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories}"  DisplayMemberPath="category1" SelectedItem="{Binding SelectedCategory}" Width="176"/>
+            <Button Content="Add" Width="70" Margin="5" Command="{Binding AddQuestionCommand}"/>
         </StackPanel>
-
-
-
         <TextBlock Text="Alle vragen" Margin="5"/>
-        <DataGrid ItemsSource="{Binding AllQuestions}" Margin="5"/>
+        <ComboBox ItemsSource="{Binding AllQuestions}" DisplayMemberPath="Question"/>
+        <Button Content="Verwijder geselecteerde vraag"/>
+        <DataGrid Margin="5" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding AnswerName}"/>
+                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding CorrectAnswer}"/>
+                <DataGridTemplateColumn Header="Verwijder">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Command="{Binding DeleteAnswerCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </StackPanel>
 </Window>
