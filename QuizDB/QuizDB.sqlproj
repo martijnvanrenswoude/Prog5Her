@@ -63,7 +63,7 @@
     <Build Include="Answers.sql" />
     <Build Include="Questionnaire.sql" />
     <Build Include="Question_Questionnaire.sql" />
-    <Build Include="Category.sql" />
+    <Build Include="Categories.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="QuizDB.refactorlog" />
