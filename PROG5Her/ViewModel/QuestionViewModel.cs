@@ -23,6 +23,10 @@ namespace PROG5Her.ViewModel
             get { return question.Question1; }
             set { question.Question1 = value; }
             }
+
+        public int[] PossibleAmountOfAnswers { get; set; }
+        public int AmountOfAnswers { get; set; }
+
         public Question SelectedQuestion { get; set; }
         public Answer SelectedAnswer { get; set; }
         public ICommand AddAnswerCommand { get; set; }
@@ -42,6 +46,7 @@ namespace PROG5Her.ViewModel
 
         public QuestionViewModel()
         {
+            PossibleAmountOfAnswers = new int[] { 2, 3, 4 };
             question = new Question();
             GetAllCategories();
             GetAllQuestions();

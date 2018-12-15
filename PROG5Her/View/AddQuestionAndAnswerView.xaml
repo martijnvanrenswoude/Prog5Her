@@ -16,6 +16,7 @@
             <TextBlock Text="Nieuwe vraag: " Margin="5"/>
             <TextBox Text="{Binding QuestionName}" Width="243" Margin="5"/>
             <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories}"  DisplayMemberPath="category1" SelectedItem="{Binding SelectedCategory}" Width="176"/>
+            <ComboBox ItemsSource="{Binding PossibleAmountOfAnswers}" SelectedItem="{Binding AmountOfAnswers}" Margin="5"/>
             <Button Content="Add" Width="70" Margin="5" Command="{Binding AddQuestionCommand}"/>
         </StackPanel>
         <TextBlock Text="Alle vragen" Margin="5"/>

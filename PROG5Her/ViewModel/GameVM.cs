@@ -14,15 +14,20 @@ namespace PROG5Her.ViewModel
         //view maken
     {
         //vars
+        
         private QuizDBEntities context;
         private int questionlistindex;
+        private Questionnaire selectedQuestionnaire;
         //properties
         public List<Questionnaire> AllQuestionnaires { get; set; }
-        public Questionnaire SelectedQuestionnaire { get; set; }
+        public Questionnaire SelectedQuestionnaire
+        {
+            get { return this.selectedQuestionnaire; }
+            set { this.selectedQuestionnaire = value; RaisePropertyChanged("SelectedQuestionnaire"); }
+        }
         public List<Question> QuestionnaireQuestions { get; set; }
         public Question SelectedQuestion { get; set;}
         public List<Answer> QuestionAnswers { get; set; }
-
         //gamestatistics properties
         public int AmountOfCorrectAnswers { get; set; }
 
@@ -35,6 +40,7 @@ namespace PROG5Her.ViewModel
         //constructor
         public GameVM()
         {
+            
             context = new QuizDBEntities();
             GetAllQuestionnairesFromDatabase();
             Answer1Command = new RelayCommand(Answer1);
