@@ -10,9 +10,12 @@ namespace PROG5Her.ViewModel
 {
     class GameVM : ViewModelBase
 
+        //raisepropertychangen
+        //view maken
     {
         //vars
         private QuizDBEntities context;
+        private int questionlistindex;
         //properties
         public List<Questionnaire> AllQuestionnaires { get; set; }
         public Questionnaire SelectedQuestionnaire { get; set; }
@@ -33,10 +36,10 @@ namespace PROG5Her.ViewModel
         {
             context = new QuizDBEntities();
             GetAllQuestionnairesFromDatabase();
-            Answer1Command = new RelayCommand();
-            Answer2Command = new RelayCommand();
-            Answer3Command = new RelayCommand();
-            Answer4Command = new RelayCommand();
+            Answer1Command = new RelayCommand(Answer1);
+            Answer2Command = new RelayCommand(Answer2);
+            Answer3Command = new RelayCommand(Answer3);
+            Answer4Command = new RelayCommand(Answer4);
 
         }
         //methods
@@ -72,21 +75,57 @@ namespace PROG5Her.ViewModel
         
         public void Answer1()
         {
+            if (QuestionAnswers[0] != null)
+            {
+                if (QuestionAnswers[0].IsCorrect == true)
+                {
+                    IncreaseAmountOfCorrectAnswers();
+                }
+            }
 
         }
         public void Answer2()
         {
-
+            if (QuestionAnswers[1] != null)
+            {
+                if (QuestionAnswers[1].IsCorrect == true)
+                {
+                    
+                    IncreaseAmountOfCorrectAnswers();
+                }
+            }
         }
         public void Answer3()
         {
+            if (QuestionAnswers[2] != null)
+            {
+                if (QuestionAnswers[2].IsCorrect == true)
+                {
+                    IncreaseAmountOfCorrectAnswers();
+                }
+                GetNewQuestion();
+            }
 
         }
         public void Answer4()
         {
-
+            if(QuestionAnswers[3] != null)
+            {
+                if (QuestionAnswers[3].IsCorrect == true)
+                {
+                    IncreaseAmountOfCorrectAnswers();
+                }
+                GetNewQuestion();
+            }
         }
 
-
+        public void GetNewQuestion()
+        {
+            if(QuestionnaireQuestions[questionlistindex] != null)
+            {
+                SelectedQuestion = QuestionnaireQuestions[questionlistindex];
+            }
+            questionlistindex++;
+        }
     }
 }
