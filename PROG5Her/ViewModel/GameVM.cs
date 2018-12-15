@@ -31,6 +31,7 @@ namespace PROG5Her.ViewModel
         public ICommand Answer2Command { get; set; }
         public ICommand Answer3Command { get; set; }
         public ICommand Answer4Command { get; set; }
+        public ICommand StartQuizCommand { get; set; }
         //constructor
         public GameVM()
         {
@@ -40,7 +41,7 @@ namespace PROG5Her.ViewModel
             Answer2Command = new RelayCommand(Answer2);
             Answer3Command = new RelayCommand(Answer3);
             Answer4Command = new RelayCommand(Answer4);
-
+            StartQuizCommand = new RelayCommand(StartNewQuiz);
         }
         //methods
         public void GetAllQuestionnairesFromDatabase()
@@ -65,6 +66,7 @@ namespace PROG5Her.ViewModel
             using (context)
             {
                 QuestionAnswers = context.Answers.Where(a => a.QuestionID == SelectedQuestion.Id).ToList();
+                RaisePropertyChanged("QuestionAnswers");
             }
         }
 
@@ -124,8 +126,16 @@ namespace PROG5Her.ViewModel
             if(QuestionnaireQuestions[questionlistindex] != null)
             {
                 SelectedQuestion = QuestionnaireQuestions[questionlistindex];
+                GetQuestionAnswersFromDatabase();
+                RaisePropertyChanged("SelectedQuestion");
             }
             questionlistindex++;
+        }
+
+        public void StartNewQuiz()
+        {
+            GetAllQuestionnaireQuestionsFromDatabase();
+            GetNewQuestion();
         }
     }
 }
