@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG5Her.View"
         mc:Ignorable="d"
-        Title="PreGameView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+                DataContext ="{Binding GameVM ,Source={StaticResource Locator}}"
+        Title="PreGameView" Height="317.213" Width="363.832">
+    <StackPanel>
+        <TextBlock Text="Selecteer een Quiz!" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"/>
+        <ComboBox Margin="10" ItemsSource="{Binding AllQuestionnaires}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedQuestionnaire}" />
+         
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5" Text="Geselecteerde vragenlijst: " FontWeight="Bold"/>
+            <TextBlock Margin="5" Text="{Binding SelectedQuestionaire.Name}"/>
+        </StackPanel>
+   
+        <Button Content="Start quiz" Margin="10"/>
+    </StackPanel>
 </Window>
