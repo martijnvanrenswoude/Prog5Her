@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG5Her.View"
         mc:Ignorable="d"
+        DataContext ="{Binding QuizVM ,Source={StaticResource Locator}}"
         Title="QuizCRUDView" Height="450" Width="800">
     <Grid>
-        <StackPanel/>
-        <Button/>
+     
     </Grid>
 </Window>
