@@ -46,3 +46,6 @@ PROG5Her/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 PROG5Her/PROG5Her.csproj
 PROG5Her/obj/Debug/View/QuizCRUDView.g.cs
 PROG5Her/obj/Debug/View/QuizCRUDView.g.i.cs
+*.baml
+*.cache
+*.lref
