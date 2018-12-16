@@ -14,7 +14,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
             <TextBlock Text="Nieuwe vraag: " Margin="5"/>
-            <TextBox Text="{Binding QuestionName}" Width="243" Margin="5"/>
+            <TextBox Text="{Binding QuestionName}"  Width="243" Margin="5"/>
             <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories}"  DisplayMemberPath="category1" SelectedItem="{Binding SelectedCategory}" Width="176"/>
             <ComboBox ItemsSource="{Binding PossibleAmountOfAnswers}" SelectedItem="{Binding AmountOfAnswers}" Margin="5"/>
             <Button Content="Add" Width="70" Margin="5" Command="{Binding AddQuestionCommand}"/>
@@ -24,14 +24,14 @@
         <ComboBox ItemsSource="{Binding AllQuestions}" DisplayMemberPath="Question1" SelectedItem="{Binding SelectedQuestion}"/>
         
         <Button Content="Verwijder geselecteerde vraag" Command="{Binding DeleteQuestionCommand}" />
-        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer}">
+        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding AnswerName}"/>
-                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding CorrectAnswer}"/>
+                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding AnswerName, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding CorrectAnswer,  Mode=TwoWay}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete" Command="{Binding DeleteAnswerCommand}"/>
+                            <Button Content="Delete" Command="{Binding DeleteAnswerCommand,  Mode=TwoWay}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
