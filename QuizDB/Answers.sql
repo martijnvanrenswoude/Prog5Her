@@ -4,5 +4,5 @@
     [QuestionID] INT NOT NULL, 
     [IsCorrect] BIT NULL
 	Foreign key (QuestionID) References Question(id), 
-    [Answer] NVARCHAR(MAX) NOT NULL
+    [Answer] NVARCHAR(MAX) NULL
 )

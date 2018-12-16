@@ -33,3 +33,8 @@ C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csproj.Co
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csproj.CopyComplete
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\PROG5Her.exe
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\PROG5Her.pdb
+C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csprojAssemblyReference.cache
+C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\GameView.g.cs
+C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.g.cs
+C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\GameView.baml
+C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.baml

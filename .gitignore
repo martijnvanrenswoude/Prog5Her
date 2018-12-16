@@ -6,3 +6,4 @@
 *.dbmdl
 *.jfm
 *.jfm
+*.lock

@@ -1,0 +1,21 @@
+﻿<Window x:Class="PROG5Her.View.PreGameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG5Her.View"
+        mc:Ignorable="d"
+                DataContext ="{Binding GameVM ,Source={StaticResource Locator}}"
+        Title="PreGameView" Height="317.213" Width="363.832">
+    <StackPanel>
+        <TextBlock Text="Selecteer een Quiz!" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"/>
+        <ComboBox Margin="10" ItemsSource="{Binding AllQuestionnaires}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedQuestionnaire}" />
+         
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5" Text="Geselecteerde vragenlijst: " FontWeight="Bold"/>
+            <TextBlock Margin="5" Text="{Binding SelectedQuestionaire.Name}"/>
+        </StackPanel>
+   
+        <Button Content="Start quiz" Margin="10" Command="{Binding StartQuiz}"/>
+    </StackPanel>
+</Window>
