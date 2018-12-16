@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="category" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Question">
@@ -34,6 +34,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="AmountOfAnswers" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Question_Questionnaire">
           <Key>
@@ -148,7 +149,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="category1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Catego__403A8C7D" FromRole="Categories" ToRole="Question" />
         </EntityType>
@@ -159,6 +160,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="AmountOfAnswers" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__Questio__3F466844" FromRole="Question" ToRole="Answers" />
           <NavigationProperty Name="Category" Relationship="Self.FK__Question__Catego__403A8C7D" FromRole="Question" ToRole="Categories" />
           <NavigationProperty Name="Questionnaires" Relationship="Self.Question_Questionnaire" FromRole="Question" ToRole="Questionnaire" />
@@ -256,6 +258,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Question1" ColumnName="Question" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="AmountOfAnswers" ColumnName="AmountOfAnswers" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
