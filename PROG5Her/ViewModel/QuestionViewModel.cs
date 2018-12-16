@@ -36,7 +36,7 @@ namespace PROG5Her.ViewModel
         public Question SelectedQuestion
         {
             get { return this.question; }
-            set { this.question = value; }
+            set { this.question = value; GetAllAnswers(); }
         }
         public Answer SelectedAnswer { get; set; }
         public ICommand AddAnswerCommand { get; set; }
@@ -46,11 +46,11 @@ namespace PROG5Her.ViewModel
         public bool CorrectAnswer
         {
             get { if (SelectedAnswer.IsCorrect != null) { return (bool)SelectedAnswer.IsCorrect; }; return false; }
-            set { SelectedAnswer.IsCorrect = value; }
+            set { SelectedAnswer.IsCorrect = value; UpdateAnswer(); RaisePropertyChanged("CorrectAnswer"); }
         }
         public string AnswerName {
-            get { return answer.Answer1; }
-            set { answer.Answer1 = value; }
+            get { return SelectedAnswer.Answer1; }
+            set { SelectedAnswer.Answer1 = value; UpdateAnswer(); RaisePropertyChanged("AnswerName"); }
         }
         //Constructor
 
@@ -77,6 +77,7 @@ namespace PROG5Her.ViewModel
             }
             AddAnswer();
             GetAllQuestions();
+            
         }
 
         public void GetAllQuestions()
@@ -87,6 +88,7 @@ namespace PROG5Her.ViewModel
 
             }
             RaisePropertyChanged("AllQuestions");
+            
         }
 
         public void AddAnswer()
@@ -96,7 +98,7 @@ namespace PROG5Her.ViewModel
             {
                 for(int i = 0; i < AllAnswers.Length; i++)
                 {
-                    if(AllAnswers[i] != null)
+                    if(AllAnswers[i] == null)
                     {
                         AllAnswers[i] = new Answer { QuestionID = SelectedQuestion.Id };
                         context.Answers.Add(AllAnswers[i]);
@@ -157,5 +159,15 @@ namespace PROG5Her.ViewModel
             }
         }
 
+        public void UpdateAnswer()
+        {
+            using(var context = new QuizDBEntities())
+            {
+                SelectedAnswer.Answer1 = AnswerName;
+                SelectedAnswer.IsCorrect = CorrectAnswer;
+                context.Answers.Attach(SelectedAnswer);
+                context.SaveChanges();
+            }
+        }
     }
 }

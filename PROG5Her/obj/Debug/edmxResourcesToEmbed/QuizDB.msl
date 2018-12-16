@@ -32,6 +32,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Question1" ColumnName="Question" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="AmountOfAnswers" ColumnName="AmountOfAnswers" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
