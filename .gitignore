@@ -81,3 +81,7 @@ QuizDB/obj/Debug/Model.xml
 QuizDB/obj/Debug/QuizDB.dll
 QuizDB/obj/Debug/QuizDB.pdb
 QuizDB/obj/Debug/QuizDB.sqlproj.FileListAbsolute.txt
+*.baml
+*.cache
+*.lref
+*.csproj

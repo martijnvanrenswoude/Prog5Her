@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PROG5Her.ViewModel
 {
-    public class HomeViewModel
+    public class HomeViewModel : ViewBase
     {
         //vars
         private AddQuestionAndAnswerView questionCrudView;
@@ -24,6 +24,7 @@ namespace PROG5Her.ViewModel
             get { return quizCrudView; }
             set { quizCrudView = value; }
         }
+        public ObservableCollection test;
         //commands
         public RelayCommand OpenQuestionCrudViewCommand { get; set; }
         public RelayCommand OpenQuizCrudViewCommand { get; set; }
