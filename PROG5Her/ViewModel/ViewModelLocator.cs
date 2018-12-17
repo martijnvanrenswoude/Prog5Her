@@ -43,13 +43,28 @@ namespace PROG5Her.ViewModel
 
         public QuestionViewModel QuestionVM => ServiceLocator.Current.GetInstance<QuestionViewModel>();
         public QuizViewModel QuizVM => ServiceLocator.Current.GetInstance<QuizViewModel>();
-        public HomeViewModel HomeVM => ServiceLocator.Current.GetInstance<HomeViewModel>();
-        public GameVM GameVM => ServiceLocator.Current.GetInstance<GameVM>();
 
-
+        public GameVM GameVM
+        {
+            get
+            {
+                //return ServiceLocator.Current.GetInstance<GameVM>();
+                return new GameVM(HomeVM.SelectedQuiz);
+            }
+        }
+        public HomeViewModel HomeVM
+        {
+            get
+            {
+                return new HomeViewModel();
+            }
+        }
         public static void Cleanup()
         {
 
         }
+
     }
 }
+
+

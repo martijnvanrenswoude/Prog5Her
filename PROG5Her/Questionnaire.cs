@@ -17,7 +17,7 @@ namespace PROG5Her
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Questionnaire()
         {
-            this.Questions = new HashSet<Question>();
+            this.Question = new HashSet<Question>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace PROG5Her
         public string Category { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Question> Question { get; set; }
     }
 }

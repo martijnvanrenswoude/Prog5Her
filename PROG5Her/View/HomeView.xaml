@@ -18,7 +18,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="5" Text="Geselecteerde vragenlijst: " FontWeight="Bold"/>
-                <TextBlock Margin="5" Text="{Binding SelectedQuestionaire.Name}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedQuiz.Name}"/>
             </StackPanel>
 
             <Button Content="Start quiz" Margin="10" Command="{Binding PlayQuizCommand}"/>

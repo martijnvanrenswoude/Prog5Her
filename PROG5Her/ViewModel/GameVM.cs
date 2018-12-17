@@ -15,7 +15,6 @@ namespace PROG5Her.ViewModel
     {
         //vars
         
-        private QuizDBEntities context;
         private int questionlistindex;
         private Questionnaire selectedQuestionnaire;
         //properties
@@ -27,7 +26,7 @@ namespace PROG5Her.ViewModel
         }
         public List<Question> QuestionnaireQuestions { get; set; }
         public Question SelectedQuestion { get; set;}
-        public List<Answer> QuestionAnswers { get; set; }
+        public List<Answers> QuestionAnswers { get; set; }
         //gamestatistics properties
         public int AmountOfCorrectAnswers { get; set; }
 
@@ -38,38 +37,36 @@ namespace PROG5Her.ViewModel
         public ICommand Answer4Command { get; set; }
         public ICommand StartQuizCommand { get; set; }
         //constructor
-        public GameVM()
+        public GameVM(Questionnaire questionnaire)
         {
-            
-            context = new QuizDBEntities();
-            GetAllQuestionnairesFromDatabase();
+            this.SelectedQuestionnaire = questionnaire;
             Answer1Command = new RelayCommand(Answer1);
             Answer2Command = new RelayCommand(Answer2);
             Answer3Command = new RelayCommand(Answer3);
             Answer4Command = new RelayCommand(Answer4);
-            StartQuizCommand = new RelayCommand(StartNewQuiz);
+            StartNewQuiz();
         }
         //methods
-        public void GetAllQuestionnairesFromDatabase()
-        {
-            using(context)
-            {
-                AllQuestionnaires = context.Questionnaires.ToList();
-            }
-        }
+        //public void GetAllQuestionnairesFromDatabase()
+        //{
+        //    using (var context = new QuizDBEntities())
+        //    {
+        //        AllQuestionnaires = context.Questionnaires.ToList();
+        //    }
+        //}
 
         public void GetAllQuestionnaireQuestionsFromDatabase()
         {
-            using (context)
+            using (var context = new QuizDBEntities())
             {
                 // QuestionnaireQuestions = context.Questions.Where(q => q.Questionnaires. == SelectedQuestionnaire.Id);
-                QuestionnaireQuestions = context.Questions.Where(q => q.Questionnaires.Any(qu => qu.Id == SelectedQuestionnaire.Id)).ToList();
+                QuestionnaireQuestions = context.Question.Where(q => q.Questionnaire.Any(qu => qu.Id == SelectedQuestionnaire.Id)).ToList();
             }
         }
 
         public void GetQuestionAnswersFromDatabase()
         {
-            using (context)
+            using (var context = new QuizDBEntities())
             {
                 QuestionAnswers = context.Answers.Where(a => a.QuestionID == SelectedQuestion.Id).ToList();
                 RaisePropertyChanged("QuestionAnswers");

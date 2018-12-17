@@ -15,7 +15,6 @@ namespace PROG5Her.ViewModel
         private AddQuestionAndAnswerView questionCrudView;
         private QuizCRUDView quizCrudView;
         private GameView gameView;
-        private GameVM gameVM;
         //properties
         public Questionnaire SelectedQuiz { get; set; }
         public AddQuestionAndAnswerView QuestionCrudView
@@ -34,9 +33,8 @@ namespace PROG5Her.ViewModel
         public RelayCommand OpenQuestionCrudViewCommand { get; set; }
         public RelayCommand OpenQuizCrudViewCommand { get; set; }
         //constructor
-        public HomeViewModel(GameVM gameVM)
+        public HomeViewModel()
         {
-            this.gameVM = gameVM;
             //lists
             getAllQuizes();
             //set commands
@@ -49,7 +47,7 @@ namespace PROG5Her.ViewModel
         {
             using (var context = new QuizDBEntities())
             {
-                AllQuizes = context.Questionnaires.ToList();
+                AllQuizes = context.Questionnaire.ToList();
             }
         }
         //command functions
@@ -67,7 +65,6 @@ namespace PROG5Her.ViewModel
         private void PlayQuiz()
         {
             gameView = new GameView();
-            gameVM.StartNewQuiz();
             gameView.Show();
         }
     }
