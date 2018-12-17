@@ -28,6 +28,7 @@ namespace PROG5Her.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<QuestionViewModel>();
+            SimpleIoc.Default.Register<GameVM>();
         }
 
         public MainViewModel Main
@@ -39,6 +40,7 @@ namespace PROG5Her.ViewModel
         }
 
         public QuestionViewModel QuestionVM => ServiceLocator.Current.GetInstance<QuestionViewModel>();
+        public GameVM GameVM => ServiceLocator.Current.GetInstance<GameVM>();
 
         public static void Cleanup()
         {

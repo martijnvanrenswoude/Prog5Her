@@ -26,8 +26,8 @@
         <Button Content="Verwijder geselecteerde vraag" Command="{Binding DeleteQuestionCommand}" />
         <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding AnswerName, Mode=TwoWay}"/>
-                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding CorrectAnswer,  Mode=TwoWay}"/>
+                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding Answer1}"/>
+                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding IsCorrect}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

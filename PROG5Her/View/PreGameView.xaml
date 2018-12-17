@@ -16,6 +16,6 @@
             <TextBlock Margin="5" Text="{Binding SelectedQuestionaire.Name}"/>
         </StackPanel>
    
-        <Button Content="Start quiz" Margin="10" Command="{Binding StartQuiz}"/>
+        <Button Content="Start quiz" Margin="10" Command="{Binding StartQuizCommand}"/>
     </StackPanel>
 </Window>
