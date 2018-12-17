@@ -12,8 +12,20 @@
             <Button Command="{Binding OpenQuestionCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Vragen Beheer" FontSize="25"/>
             <Button Command="{Binding OpenQuizCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Quiz Beheer"   FontSize="25"/>
         </StackPanel>
-        <StackPanel Width="400" Background="Red" Orientation="Vertical">
-
+        <StackPanel  Width="345" Background="Red" Orientation="Vertical">
+            <DataGrid AutoGenerateColumns="False" SelectedItem="{Binding SelectedQuiz}" ItemsSource="{Binding AllQuizes}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Quiz naam"  Binding="{Binding Name}"            Width="100"/>
+                    <DataGridTextColumn Header="Categorie"  Binding="{Binding Category}"        Width="100"/>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.PlayQuizCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" >Speel</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </StackPanel>
 </Window>
