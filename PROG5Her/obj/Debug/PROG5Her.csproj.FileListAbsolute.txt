@@ -38,3 +38,46 @@ C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\GameView.g.cs
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.g.cs
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\GameView.baml
 C:\Users\Martijn\Documents\GitHub\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\PROG5Her.exe.config
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\PROG5Her.exe
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\PROG5Her.pdb
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\CommonServiceLocator.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\EntityFramework.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\EntityFramework.xml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\AddQuestion.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\AddQuestionAndAnswerView.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\GameView.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\HomeView.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\MainWindow.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\QuizCRUDView.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\App.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her_Content.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her_MarkupCompile.cache
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her_MarkupCompile.lref
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\App.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\AddQuestion.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\AddQuestionAndAnswerView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\GameView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\MainWindow.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\PreGameView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\HomeView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\View\QuizCRUDView.baml
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.g.resources
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.Properties.Resources.resources
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csproj.GenerateResource.cache
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.csproj.CopyComplete
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.exe
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\obj\Debug\PROG5Her.pdb

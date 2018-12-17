@@ -108,11 +108,19 @@
       <DependentUpon>QuizDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\GameVM.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
+    <Compile Include="ViewModel\QuizViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PreGameView.xaml.cs">
       <DependentUpon>PreGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuizCRUDView.xaml.cs">
+      <DependentUpon>QuizCRUDView.xaml</DependentUpon>
     </Compile>
     <Page Include="AddQuestion.xaml">
       <SubType>Designer</SubType>
@@ -125,6 +133,10 @@
     <Page Include="View\GameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +159,10 @@
     <Page Include="View\PreGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuizCRUDView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

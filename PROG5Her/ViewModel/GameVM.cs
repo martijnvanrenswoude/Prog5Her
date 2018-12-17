@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace PROG5Her.ViewModel
 {
-    class GameVM : ViewModelBase
+    public class GameVM : ViewModelBase
 
         //raisepropertychangen
         //view maken

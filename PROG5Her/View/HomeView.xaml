@@ -12,8 +12,16 @@
             <Button Command="{Binding OpenQuestionCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Vragen Beheer" FontSize="25"/>
             <Button Command="{Binding OpenQuizCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Quiz Beheer"   FontSize="25"/>
         </StackPanel>
-        <StackPanel Width="400" Background="Red" Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Width="345" Background="Red">
+            <TextBlock Text="Selecteer een Quiz!" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"/>
+            <ComboBox Margin="10" ItemsSource="{Binding AllQuizes}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedQuiz}" />
 
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Text="Geselecteerde vragenlijst: " FontWeight="Bold"/>
+                <TextBlock Margin="5" Text="{Binding SelectedQuestionaire.Name}"/>
+            </StackPanel>
+
+            <Button Content="Start quiz" Margin="10" Command="{Binding PlayQuizCommand}"/>
         </StackPanel>
     </StackPanel>
 </Window>
