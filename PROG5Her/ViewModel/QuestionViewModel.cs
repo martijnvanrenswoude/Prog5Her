@@ -53,7 +53,9 @@ namespace PROG5Her.ViewModel
             get { return SelectedAnswer.Answer; }
             set { SelectedAnswer.Answer = value; UpdateAnswer(); RaisePropertyChanged("AnswerName"); }
         }
-        
+
+        public List<Questionnaire> QuestionQuestionnaires { get; set; }
+        public List<Question> QuestionnaireQuestions { get; set; }
         //Constructor
         public QuestionViewModel()
         {
@@ -129,6 +131,7 @@ namespace PROG5Her.ViewModel
                 context.Question.Attach(question);
                 context.Question.Remove(question);
                 context.SaveChanges();
+
                 
             }
             GetAllQuestions();
@@ -138,6 +141,10 @@ namespace PROG5Her.ViewModel
         {
             using (var context = new QuizDBEntities())
             {
+
+               // QuestionnaireQuestions = context.Question.Where(q => q.Questionnaire.Any(qu => qu.Id == SelectedQuestionnaire.Id)).ToList();
+               //QuestionQuestionnaires = context.Questionnaire.Where(q => q.Question.Any(qu => qu.Id == SelectedQuestion.Id)).ToList();
+
                 context.Answers.Attach(SelectedAnswer);
                 context.Answers.Remove(SelectedAnswer);
                 context.SaveChanges();
@@ -175,5 +182,14 @@ namespace PROG5Her.ViewModel
                 context.SaveChanges();
             }
         }
+
+        //public void DeleteFromKoppelTabel()
+        //{
+        //    using (var context = new QuizDBEntities())
+        //    {
+        //        var questions = context.Questions.Where(q => q.Questionnaire).ToList();
+        //        //q.Questionnaire.SingleOrDefault(q => q.ID = SelectedQuestion.Id)
+        //    }
+        //}
     }
 }

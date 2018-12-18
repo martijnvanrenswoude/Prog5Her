@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PROG5Her.View"
         mc:Ignorable="d"
         DataContext ="{Binding QuestionVM ,Source={StaticResource Locator}}"
-        Title="AddQuestionAndAnswerView" Height="450" Width="800">
+        Title="AddQuestionAndAnswerView" Height="500" Width="800">
     <StackPanel>
         <TextBlock Text="Vragen Beheer" FontSize="38" HorizontalAlignment="Center"/>
 
@@ -22,7 +22,15 @@
         <TextBlock Text="Alle vragen" Margin="5"/>
         
         <ComboBox ItemsSource="{Binding AllQuestions}" DisplayMemberPath="Question1" SelectedItem="{Binding SelectedQuestion}"/>
-        
+
+        <TextBlock Margin="10" FontSize="18" Text="Bewerk uw vraag" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
+            <TextBox Text="{Binding QuestionName}"  Width="243" Margin="5"/>
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories}"  DisplayMemberPath="category" SelectedItem="{Binding SelectedCategory}" Width="176"/>
+            <ComboBox ItemsSource="{Binding PossibleAmountOfAnswers}" SelectedItem="{Binding AmountOfAnswers}" Margin="5"/>
+            <Button Content="Add" Width="70" Margin="5" Command="{Binding AddQuestionCommand}"/>
+        </StackPanel>
+        <TextBlock Text="Verwijder uw geselecteerde vraag" Margin="10" FontSize="18" HorizontalAlignment="Center"/>
         <Button Content="Verwijder geselecteerde vraag" Command="{Binding DeleteQuestionCommand}" />
         <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}">
             <DataGrid.Columns>
