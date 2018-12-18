@@ -21,19 +21,20 @@
             <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories }"  DisplayMemberPath="category" SelectedItem="{Binding SelectedCategory}" Width="176"/>
         </StackPanel>
 
-        <DataGrid Margin="5" Height="225" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding SelectedQuestions}">
+        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding SelectedQuestions}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="700" Header="Vragen" Binding="{Binding Question1}"/>
+                <DataGridTextColumn Width="500" Header="Vraag" Binding="{Binding Question1}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Command="{Binding RemoveQuestionCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
-            <DataGridTemplateColumn>
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Button Content="Remove" Command="{Binding RemoveQuestionCommand}"/>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
         </DataGrid>
-        
+
         <StackPanel Orientation="Horizontal">
             <Button Content="Save quiz changes" Width="125" Margin="5" Command="{Binding SaveChangesCommand }"/>
         </StackPanel>

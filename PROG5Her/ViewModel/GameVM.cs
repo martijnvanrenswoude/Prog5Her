@@ -10,8 +10,6 @@ namespace PROG5Her.ViewModel
 {
     public class GameVM : ViewModelBase
 
-        //raisepropertychangen
-        //view maken
     {
         //vars
         
