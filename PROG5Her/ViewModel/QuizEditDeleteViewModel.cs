@@ -18,6 +18,7 @@ namespace PROG5Her.ViewModel
         //properties
         public ObservableCollection<Questionnaire> AllQuizes { get; set; }
         public ObservableCollection<Categories> AllCategories { get; set; }
+        //public ObservableCollection<Question> SelectedQuestions { get; set; }
         public List<Question> SelectedQuestions { get; set; }
         public Questionnaire SelectedEditQuiz
         {
@@ -81,11 +82,11 @@ namespace PROG5Her.ViewModel
         //funcitons
         private void getSelectedQuestions()
         {
-            SelectedQuestions = new List<Question>();
             using (var context = new QuizDBEntities())
             {
                 SelectedQuestions = context.Question.Where(q => q.Questionnaire.Any(qu => qu.Id == SelectedEditQuiz.Id)).ToList();
             }
+            RaisePropertyChanged("SelectedQuestions");
         }
         private void getAllCategories()
         {
@@ -121,12 +122,7 @@ namespace PROG5Her.ViewModel
         }
         private void DeleteQuiz()
         {
-            using (var context = new QuizDBEntities())
-            {
-                context.Questionnaire.Attach(SelectedDeleteQuiz);
-                context.Questionnaire.Remove(SelectedDeleteQuiz);
-                context.SaveChanges();
-            }
+            AllQuizes.Remove(selectedDeleteQuiz);
         }
 
         private void SaveChanges()
