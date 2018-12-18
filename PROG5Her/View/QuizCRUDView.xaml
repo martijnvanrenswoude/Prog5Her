@@ -5,9 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG5Her.View"
         mc:Ignorable="d"
-        DataContext ="{Binding QuizVM ,Source={StaticResource Locator}}"
+        DataContext ="{Binding QuizEditDeleteVM ,Source={StaticResource Locator}}"
         Title="QuizCRUDView" Height="450" Width="800">
-    <Grid>
-     
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Quiz Beheer" FontSize="38" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Quiz editen" Margin="5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
+            <TextBlock Text="Selecteer Quiz: " Margin="5"/>
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllQuizes}"  DisplayMemberPath="Name" SelectedItem="{Binding SelectedEditQuiz}" Width="411"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
+            <TextBlock Text="Quiz naam: " Margin="5"/>
+            <TextBox Text="{Binding QuizName}"  Width="243" Margin="5"/>
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories }"  DisplayMemberPath="category" SelectedItem="{Binding SelectedCategory}" Width="176"/>
+        </StackPanel>
+
+        <DataGrid Margin="5" Height="225" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding SelectedQuestions}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="700" Header="Vragen" Binding="{Binding Question1}"/>
+            </DataGrid.Columns>
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Content="Remove" Command="{Binding RemoveQuestionCommand}"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid>
+        
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Save quiz changes" Width="125" Margin="5" Command="{Binding SaveChangesCommand }"/>
+        </StackPanel>
+        
+        <StackPanel Background="GreenYellow" Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
+            <TextBlock Text="Quiz verwijderen" Margin="0 0 20 0"/>
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllQuizes }"  DisplayMemberPath="Name" SelectedItem="{Binding SelectedDeleteQuiz}" Width="393"/>
+            <Button Content="verwijder" Width="70" Margin="20 0 0 0" Command="{Binding DeleteQuizCommand}"/>
+        </StackPanel>      
+
+    </StackPanel>
 </Window>

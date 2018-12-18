@@ -111,8 +111,12 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
+    <Compile Include="ViewModel\QuizEditDeleteViewModel.cs" />
     <Compile Include="ViewModel\QuizViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AddNewQuiz.xaml.cs">
+      <DependentUpon>AddNewQuiz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,10 @@
       <DependentUpon>QuizCRUDView.xaml</DependentUpon>
     </Compile>
     <Page Include="AddQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddNewQuiz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

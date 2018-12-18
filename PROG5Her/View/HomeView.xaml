@@ -11,6 +11,7 @@
         <StackPanel Width="250" Background="Blue" Orientation="Vertical">
             <Button Command="{Binding OpenQuestionCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Vragen Beheer" FontSize="25"/>
             <Button Command="{Binding OpenQuizCrudViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Quiz Beheer"   FontSize="25"/>
+            <Button Command="{Binding OpenNewQuizViewCommand}" Margin="0 20 0 0"  Width="200" Height="50" Content="Nieuwe Quiz"   FontSize="25"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Width="345" Background="Red">
             <TextBlock Text="Selecteer een Quiz!" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"/>

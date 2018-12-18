@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
@@ -12,13 +13,13 @@ namespace PROG5Her.ViewModel
     { 
         //Variable
         private Question question;
-        private Answer answer;
+        private Answers answer;
         private int amountOfAnswers;
         //Properties
-        public List<Category> AllCategories { get; set; }
-        public Category SelectedCategory { get; set; }
+        public ObservableCollection<Categories> AllCategories { get; set; }
+        public Categories SelectedCategory { get; set; }
         public List<Question> AllQuestions { get; set; }
-        public Answer[] AllAnswers {get;set;}
+        public Answers[] AllAnswers {get;set;}
         
         public string QuestionName
         {
@@ -30,7 +31,7 @@ namespace PROG5Her.ViewModel
         public int AmountOfAnswers
         {
             get { return amountOfAnswers; }
-            set { amountOfAnswers = value; AllAnswers = new Answer[value]; }
+            set { amountOfAnswers = value; AllAnswers = new Answers[value]; }
         }
 
         public Question SelectedQuestion
@@ -38,10 +39,10 @@ namespace PROG5Her.ViewModel
             get { return this.question; }
             set { this.question = value; GetAllAnswers(); }
         }
-        public Answer SelectedAnswer { get; set; }
+        public Answers SelectedAnswer { get; set; }
         public ICommand AddAnswerCommand { get; set; }
         public ICommand AddQuestionCommand { get; set; }
-        public ICommand DeleteAnswerCommand { get; set; }
+        public RelayCommand DeleteAnswerCommand { get; set; }
         public ICommand DeleteQuestionCommand { get; set; }
         public bool CorrectAnswer
         {
@@ -49,11 +50,11 @@ namespace PROG5Her.ViewModel
             set { SelectedAnswer.IsCorrect = value; UpdateAnswer(); RaisePropertyChanged("CorrectAnswer"); }
         }
         public string AnswerName {
-            get { return SelectedAnswer.Answer1; }
-            set { SelectedAnswer.Answer1 = value; UpdateAnswer(); RaisePropertyChanged("AnswerName"); }
+            get { return SelectedAnswer.Answer; }
+            set { SelectedAnswer.Answer = value; UpdateAnswer(); RaisePropertyChanged("AnswerName"); }
         }
+        
         //Constructor
-
         public QuestionViewModel()
         {
             PossibleAmountOfAnswers = new int[] { 2, 3, 4 };
@@ -66,17 +67,21 @@ namespace PROG5Her.ViewModel
             DeleteQuestionCommand = new RelayCommand(DeleteQuestion);
         }
 
+        //functions
         public void addQuestion()
         {
             using(var context = new QuizDBEntities())
             {
                 question.CategoryID = SelectedCategory.ID;
                 question.AmountOfAnswers = amountOfAnswers;
-                context.Questions.Add(question);
+                context.Question.Add(question);
                 context.SaveChanges();
             }
             AddAnswer();
             GetAllQuestions();
+            SelectedCategory = null;
+            QuestionName = null;
+            PossibleAmountOfAnswers = null;
             
         }
 
@@ -84,7 +89,7 @@ namespace PROG5Her.ViewModel
         {
             using(var context = new QuizDBEntities())
             {
-               AllQuestions = context.Questions.ToList();
+               AllQuestions = context.Question.ToList();
 
             }
             RaisePropertyChanged("AllQuestions");
@@ -92,15 +97,14 @@ namespace PROG5Her.ViewModel
         }
 
         public void AddAnswer()
-        {
-            
+        {            
             using (var context = new QuizDBEntities())
             {
                 for(int i = 0; i < AllAnswers.Length; i++)
                 {
                     if(AllAnswers[i] == null)
                     {
-                        AllAnswers[i] = new Answer { QuestionID = SelectedQuestion.Id };
+                        AllAnswers[i] = new Answers { QuestionID = SelectedQuestion.Id };
                         context.Answers.Add(AllAnswers[i]);
                         context.SaveChanges();
                     }
@@ -122,8 +126,8 @@ namespace PROG5Her.ViewModel
         {
             using(var context = new QuizDBEntities())
             {
-                context.Questions.Attach(question);
-                context.Questions.Remove(question);
+                context.Question.Attach(question);
+                context.Question.Remove(question);
                 context.SaveChanges();
                 
             }
@@ -138,12 +142,14 @@ namespace PROG5Her.ViewModel
                 context.Answers.Remove(SelectedAnswer);
                 context.SaveChanges();
             }
+            GetAllQuestions();
+            RaisePropertyChanged("AllQuestions");
         }
         public void GetAllCategories()
         {
             using (var context = new QuizDBEntities())
             {
-               AllCategories = context.Categories.ToList();
+               AllCategories = new ObservableCollection<Categories>(context.Categories.ToList());
             }
         }
 
@@ -163,7 +169,7 @@ namespace PROG5Her.ViewModel
         {
             using(var context = new QuizDBEntities())
             {
-                SelectedAnswer.Answer1 = AnswerName;
+                SelectedAnswer.Answer = AnswerName;
                 SelectedAnswer.IsCorrect = CorrectAnswer;
                 context.Answers.Attach(SelectedAnswer);
                 context.SaveChanges();

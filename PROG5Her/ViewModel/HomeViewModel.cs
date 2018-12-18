@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using PROG5Her.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -12,11 +13,21 @@ namespace PROG5Her.ViewModel
     public class HomeViewModel : ViewModelBase
     {
         //vars
+        public QuizCRUDView quizCrudView;
         private AddQuestionAndAnswerView questionCrudView;
-        private QuizCRUDView quizCrudView;
+        private AddNewQuiz newQuizView;
         private GameView gameView;
+        private Questionnaire selectedQuiz;
         //properties
-        public Questionnaire SelectedQuiz { get; set; }
+        public Questionnaire SelectedQuiz
+        {
+            get{ return selectedQuiz; }
+            set
+            {
+                selectedQuiz = value;
+                base.RaisePropertyChanged("SelectedQuiz");         
+            }
+        }
         public AddQuestionAndAnswerView QuestionCrudView
         {
             get {return questionCrudView;}
@@ -27,11 +38,13 @@ namespace PROG5Her.ViewModel
             get { return quizCrudView; }
             set { quizCrudView = value; }
         }
-        public List<Questionnaire> AllQuizes { get; set; }
+        public ObservableCollection<Questionnaire> AllQuizes { get; set; }
         //commands
         public RelayCommand PlayQuizCommand { get; set; }
         public RelayCommand OpenQuestionCrudViewCommand { get; set; }
         public RelayCommand OpenQuizCrudViewCommand { get; set; }
+
+        public RelayCommand OpenNewQuizViewCommand { get; set; }
         //constructor
         public HomeViewModel()
         {
@@ -41,13 +54,14 @@ namespace PROG5Her.ViewModel
             PlayQuizCommand =               new RelayCommand(PlayQuiz);
             OpenQuestionCrudViewCommand =   new RelayCommand(OpenQuestionCrudView);
             OpenQuizCrudViewCommand =       new RelayCommand(OpenQuizCrudView);
+            OpenNewQuizViewCommand = new RelayCommand(openNewQuizView);
         }
         //functions
         private void getAllQuizes()
         {
             using (var context = new QuizDBEntities())
             {
-                AllQuizes = context.Questionnaire.ToList();
+                AllQuizes = new ObservableCollection<Questionnaire>(context.Questionnaire.ToList());
             }
         }
         //command functions
@@ -58,10 +72,14 @@ namespace PROG5Her.ViewModel
         }
         private void OpenQuizCrudView()
         {
-            QuizCrudView = new QuizCRUDView();
-            QuizCrudView.Show();
+            quizCrudView = new QuizCRUDView();
+            quizCrudView.Show();
         }
-
+        private void openNewQuizView()
+        {
+            newQuizView = new AddNewQuiz();
+            newQuizView.Show();
+        }
         private void PlayQuiz()
         {
             gameView = new GameView();

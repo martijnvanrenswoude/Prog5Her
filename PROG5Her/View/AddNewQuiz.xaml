@@ -1,0 +1,33 @@
+﻿<Window x:Class="PROG5Her.View.AddNewQuiz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG5Her.View"
+        mc:Ignorable="d"
+        DataContext ="{Binding QuizVM ,Source={StaticResource Locator}}"
+        Title="AddNewQuiz" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock Text="Quiz toevoegen" FontSize="38" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="792">
+            <TextBlock Text="Quiz naam: " Margin="5"/>
+            <TextBox Text="{Binding QuizName}"  Width="243" Margin="5"/>
+            <ComboBox Text="Catgegorie" ItemsSource="{Binding AllCategories}"  DisplayMemberPath="category" SelectedItem="{Binding SelectedCategory}" Width="176"/>
+        </StackPanel>
+
+        <TextBlock Text="Alle vragen in deze categorie" Margin="5"/>
+
+        <StackPanel Orientation="Horizontal">
+            <ComboBox  Height="20"  Width="700" ItemsSource="{Binding PossibleQuestions}" DisplayMemberPath="Question1" SelectedItem="{Binding SelectedQuestion}"/>
+            <Button Content="Add" Width="70" Margin="5" Command="{Binding AddQuestionCommand}"/>
+        </StackPanel>
+        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding SelectedQuestions}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="700" Header="Vragen" Binding="{Binding Question1}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add Quiz" Width="70" Margin="5" Command="{Binding AddQuizCommand}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

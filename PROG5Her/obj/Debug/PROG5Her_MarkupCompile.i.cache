@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\PROG5Her\App.xaml
-71216034737
+8-1031544484
 2939288
-26843752347
+28651333470
 21-638855701
-AddQuestion.xaml;View\AddQuestionAndAnswerView.xaml;View\GameView.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\PreGameView.xaml;View\QuizCRUDView.xaml;
+AddQuestion.xaml;View\AddNewQuiz.xaml;View\AddQuestionAndAnswerView.xaml;View\GameView.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\PreGameView.xaml;View\QuizCRUDView.xaml;
 
-False
+True
 

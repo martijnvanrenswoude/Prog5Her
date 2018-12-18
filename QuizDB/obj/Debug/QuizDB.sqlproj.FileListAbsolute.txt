@@ -23,3 +23,4 @@ C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\QuizDB\obj\Debug\Model.
 C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\QuizDB\obj\Debug\refactor.xml
 C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\QuizDB\obj\Debug\postdeploy.sql
 C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\QuizDB\obj\Debug\predeploy.sql
+C:\Users\wessel\Documents\,School\Jaar 2\Github\Prog5Her\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache
