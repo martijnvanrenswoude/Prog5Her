@@ -10,9 +10,12 @@ namespace PROG5Her.ViewModel
 {
     public class GameVM : ViewModelBase
 
+    //raisepropertychangen
+    //view maken
     {
         //vars
-        
+
+        private QuizDBEntities context;
         private int questionlistindex;
         private Questionnaire selectedQuestionnaire;
         //properties
@@ -23,7 +26,7 @@ namespace PROG5Her.ViewModel
             set { this.selectedQuestionnaire = value; RaisePropertyChanged("SelectedQuestionnaire"); }
         }
         public List<Question> QuestionnaireQuestions { get; set; }
-        public Question SelectedQuestion { get; set;}
+        public Question SelectedQuestion { get; set; }
         public List<Answers> QuestionAnswers { get; set; }
         //gamestatistics properties
         public int AmountOfCorrectAnswers { get; set; }
@@ -35,23 +38,26 @@ namespace PROG5Her.ViewModel
         public ICommand Answer4Command { get; set; }
         public ICommand StartQuizCommand { get; set; }
         //constructor
-        public GameVM(Questionnaire questionnaire)
+        public GameVM( Questionnaire questionnaire)
         {
-            this.SelectedQuestionnaire = questionnaire;
+            SelectedQuestionnaire = questionnaire;
+            GetAllQuestionnairesFromDatabase();
             Answer1Command = new RelayCommand(Answer1);
             Answer2Command = new RelayCommand(Answer2);
             Answer3Command = new RelayCommand(Answer3);
             Answer4Command = new RelayCommand(Answer4);
-            StartNewQuiz();
+            StartQuizCommand = new RelayCommand(StartNewQuiz);
+            TestQuiz();
+
         }
         //methods
-        //public void GetAllQuestionnairesFromDatabase()
-        //{
-        //    using (var context = new QuizDBEntities())
-        //    {
-        //        AllQuestionnaires = context.Questionnaires.ToList();
-        //    }
-        //}
+        public void GetAllQuestionnairesFromDatabase()
+        {
+            using (var context = new QuizDBEntities())
+            {
+                AllQuestionnaires = context.Questionnaire.ToList();
+            }
+        }
 
         public void GetAllQuestionnaireQuestionsFromDatabase()
         {
@@ -75,7 +81,7 @@ namespace PROG5Her.ViewModel
         {
             AmountOfCorrectAnswers++;
         }
-        
+
         public void Answer1()
         {
             if (QuestionAnswers[0] != null)
@@ -83,6 +89,7 @@ namespace PROG5Her.ViewModel
                 if (QuestionAnswers[0].IsCorrect == true)
                 {
                     IncreaseAmountOfCorrectAnswers();
+                    GetNewQuestion();
                 }
             }
 
@@ -93,10 +100,12 @@ namespace PROG5Her.ViewModel
             {
                 if (QuestionAnswers[1].IsCorrect == true)
                 {
-                    
+
                     IncreaseAmountOfCorrectAnswers();
+                    GetNewQuestion();
                 }
             }
+
         }
         public void Answer3()
         {
@@ -105,26 +114,28 @@ namespace PROG5Her.ViewModel
                 if (QuestionAnswers[2].IsCorrect == true)
                 {
                     IncreaseAmountOfCorrectAnswers();
+                    GetNewQuestion();
                 }
-                GetNewQuestion();
+
             }
 
         }
         public void Answer4()
         {
-            if(QuestionAnswers[3] != null)
+            if (QuestionAnswers[3] != null)
             {
                 if (QuestionAnswers[3].IsCorrect == true)
                 {
                     IncreaseAmountOfCorrectAnswers();
+                    GetNewQuestion();
                 }
-                GetNewQuestion();
+
             }
         }
 
         public void GetNewQuestion()
         {
-            if(QuestionnaireQuestions[questionlistindex] != null)
+            if (QuestionnaireQuestions[questionlistindex] != null)
             {
                 SelectedQuestion = QuestionnaireQuestions[questionlistindex];
                 GetQuestionAnswersFromDatabase();
@@ -137,6 +148,15 @@ namespace PROG5Her.ViewModel
         {
             GetAllQuestionnaireQuestionsFromDatabase();
             GetNewQuestion();
+        }
+
+        public void TestQuiz()
+        {
+            using (var context = new QuizDBEntities())
+            {
+                selectedQuestionnaire = context.Questionnaire.FirstOrDefault(q => q.Id == 1);
+                StartNewQuiz();
+            }
         }
     }
 }
