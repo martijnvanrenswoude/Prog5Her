@@ -32,10 +32,10 @@
         </StackPanel>
         <TextBlock Text="Verwijder uw geselecteerde vraag" Margin="10" FontSize="18" HorizontalAlignment="Center"/>
         <Button Content="Verwijder geselecteerde vraag" Command="{Binding DeleteQuestionCommand}" />
-        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}">
+        <DataGrid Margin="5" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding AllAnswers}" SelectedItem="{Binding SelectedAnswer,Mode=TwoWay }">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding Answer, Mode=TwoWay}"/>
-                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding isCorrect,  Mode=TwoWay}"/>
+                <DataGridTextColumn Width="200" Header="Antwoord" Binding="{Binding Answer}"/>
+                <DataGridCheckBoxColumn Header="Is correct" Binding="{Binding IsCorrect}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

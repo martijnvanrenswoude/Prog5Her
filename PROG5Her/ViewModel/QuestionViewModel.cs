@@ -12,6 +12,7 @@ namespace PROG5Her.ViewModel
     public class QuestionViewModel : ViewModelBase
     { 
         //Variable
+        
         private Question question;
         private Answers answer;
         private int amountOfAnswers;
@@ -39,13 +40,22 @@ namespace PROG5Her.ViewModel
             get { return this.question; }
             set { this.question = value; GetAllAnswers(); }
         }
-        public Answers SelectedAnswer { get; set; }
+        public Answers SelectedAnswer
+        {
+            get { return answer; }
+            set {
+                
+                answer = value;
+                UpdateAnswer();
+            }
+        }
         public ICommand AddAnswerCommand { get; set; }
         public ICommand AddQuestionCommand { get; set; }
         public RelayCommand DeleteAnswerCommand { get; set; }
         public ICommand DeleteQuestionCommand { get; set; }
         public bool CorrectAnswer
         {
+            
             get { if (SelectedAnswer.IsCorrect != null) { return (bool)SelectedAnswer.IsCorrect; }; return false; }
             set { SelectedAnswer.IsCorrect = value; UpdateAnswer(); RaisePropertyChanged("CorrectAnswer"); }
         }
@@ -126,16 +136,15 @@ namespace PROG5Her.ViewModel
 
         public void DeleteQuestion()
         {
-            using(var context = new QuizDBEntities())
-            {
-                context.Question.Attach(question);
-                context.Question.Remove(question);
-                context.SaveChanges();
-
-                
-            }
-            GetAllQuestions();
-            RaisePropertyChanged("AllQuestions");
+            //using(var context = new QuizDBEntities())
+            //{
+            //    context.Question.Attach(question);
+            //    context.Question.Remove(question);
+            //    context.SaveChanges();                
+            //}
+            //GetAllQuestions();
+            //RaisePropertyChanged("AllQuestions");
+            AllQuestions.Remove(question);
         }
         public void DeleteAnswer()
         {
@@ -176,8 +185,6 @@ namespace PROG5Her.ViewModel
         {
             using(var context = new QuizDBEntities())
             {
-                SelectedAnswer.Answer = AnswerName;
-                SelectedAnswer.IsCorrect = CorrectAnswer;
                 context.Answers.Attach(SelectedAnswer);
                 context.SaveChanges();
             }
